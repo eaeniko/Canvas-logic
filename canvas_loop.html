@@ -1,0 +1,52 @@
+<canvas id="tela" width="600" height="400">
+	
+</canvas>
+
+<script>
+
+	var desenhoQuadrado = function(altura,largura,color) {
+
+		var tela = document.getElementById("tela");
+		var c = tela.getContext("2d");
+		
+		c.fillStyle = color;
+		c.fillRect(altura,largura,50,50);
+
+		c.strokeStyle = "black";
+		c.strokeRect(altura,largura,50,50);
+	}
+
+	var drawCircle = function(altura,largura){
+
+		var tela = document.getElementById("tela");
+		var c = tela.getContext("2d");
+
+		c.fillStyle = "blue";
+		c.beginPath();
+		c.arc(altura,largura ,25, 0, 2*Math.PI);
+		c.fill();
+	}
+
+
+	for(var altura = 0; altura < 600; altura +=50) {
+
+		desenhoQuadrado(altura,0,"green");
+		desenhoQuadrado(altura,50,"red");
+		drawCircle(altura, 100);
+
+	}
+
+</script>
+
+
+<!--  or with while 
+	var altura = 0;
+
+	while(altura < 600) {
+
+		desenhoQuadrado(altura,0);
+		altura +=50;
+
+	}
+
+</script> -->

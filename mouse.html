@@ -1,0 +1,26 @@
+<canvas id="tela" width="600" height="400"></canvas>
+
+<script>
+
+
+	var tela = document.getElementById("tela");
+	var c = tela.getContext("2d");
+
+	c.fillStyle = "gray";
+	c.fillRect(0,0,600,400);
+
+	var atira = function(event) {
+		
+		var x = event.pageX - tela.offsetLeft;
+		var y =  event.pageY - tela.offsetTop;
+
+		c.fillStyle = "red";
+		c.beginPath();
+		c.arc(x, y, 10, 0, 2 *Math.PI);
+		c.fill();
+		console.log("Pare de clicar! " + x +"x,y" + y);
+	}
+
+	tela.onclick = atira;
+
+</script>
